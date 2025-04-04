@@ -1,5 +1,5 @@
 <template>
-    <button class="favorite-button" @click="toggleFavorite">
+    <button class="favorite-button" @click.stop="togglePokemonFavorite">
       <svg 
         width="22" 
         height="22" 
@@ -15,18 +15,19 @@
   </template>
   
   <script setup>
-  import { ref, defineEmits, defineProps } from "vue";
+  import { defineProps, computed } from "vue";
+  import { useFavoritesStore } from "@/stores/useFavoritesStore";
   
   const props = defineProps({
-    modelValue: Boolean, 
+    pokemon: Object,
   });
-  const emit = defineEmits(["update:modelValue"]);
   
-  const isFavorite = ref(props.modelValue);
+  const favoritesStore = useFavoritesStore();
   
-  const toggleFavorite = () => {
-    isFavorite.value = !isFavorite.value;
-    emit("update:modelValue", isFavorite.value);
+  const isFavorite = computed(() => favoritesStore.isFavorite(props.pokemon));
+  
+  const togglePokemonFavorite = () => {
+    favoritesStore.toggleFavorite(props.pokemon);
   };
   </script>
   

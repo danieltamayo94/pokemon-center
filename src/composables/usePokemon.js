@@ -36,7 +36,7 @@ export function usePokemon() {
 
   const searchPokemon = (query) => {
     if (!query) {
-      fetchInitialPokemon(); 
+      fetchInitialPokemon();
       return;
     }
     pokemonList.value = pokemonList.value.filter((pokemon) =>
@@ -53,5 +53,6 @@ export function usePokemon() {
     fetchPokemon,
     searchPokemon,
     pokemonList,
+    fetchInitialPokemon
   };
 }

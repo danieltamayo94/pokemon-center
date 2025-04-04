@@ -37,6 +37,9 @@
   .search-input input{
   background:#FFFFFF; 
   color:#353535;
+  font-weight: 500;
+  font-family: "Montserrat";
+  font-size: 16px;
   }
 
   @media (min-width: 768px) {

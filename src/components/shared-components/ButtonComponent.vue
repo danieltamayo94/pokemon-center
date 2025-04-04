@@ -6,9 +6,8 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, defineProps } from "vue";
 
-// eslint-disable-next-line
 const props = defineProps({
   label: String,
   state: {

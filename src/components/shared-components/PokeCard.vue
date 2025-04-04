@@ -17,7 +17,7 @@
                     Share to my friends
                 </button>
 
-                <FavoriteButton></FavoriteButton>
+                <FavoriteButton :pokemon="{ name, imageSrc, weight, height, types }" ></FavoriteButton>
             </div>
         </section>
     </div>
@@ -140,7 +140,7 @@ const sharePokemon = async () => {
     width: 100vw;
     height: 100vh;
     position: absolute;
-
+    z-index:6;
 }
 
 @media (min-width: 768px) {

@@ -1,29 +1,21 @@
 <template>
-    <div class="list-component" @click="toggleFavorite">
-      <span class="label">{{ label }}</span>
-      <FavoriteButton></FavoriteButton>
-    </div>
-  </template>
-  
-  <script setup>
-  import { defineProps, defineEmits, ref } from 'vue';
-  import FavoriteButton from '@/components/shared-components/FavoriteButton.vue';
-  
-  const props = defineProps({
-    label: String,
-    active: Boolean
-  });
-  
-  const emit = defineEmits(["update:active"]);
-  
-  const isFavorite = ref(props.active);
-  
-  const toggleFavorite = () => {
-    isFavorite.value = !isFavorite.value;
-    emit("update:active", isFavorite.value);
-  };
-  </script>
-  
+  <div class="list-component">
+    <span class="label">{{ label }}</span>
+    <FavoriteButton :pokemon="pokemon" /> 
+  </div>
+</template>
+
+<script setup>
+import { defineProps } from "vue";
+import FavoriteButton from "@/components/shared-components/FavoriteButton.vue";
+
+defineProps({
+  label: String,
+  pokemon: Object, 
+});
+</script>
+
+
   <style scoped>
   .list-component {
     display: flex;
@@ -38,7 +30,7 @@
   }
   
   .label {
-    font-size: 1.375rem; /* 22px en rem */
+    font-size: 1.375rem;
     color: #353535;
     font-family: 'Dm Sans';
   }
