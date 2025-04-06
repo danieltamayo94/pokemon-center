@@ -17,16 +17,23 @@
                     Share to my friends
                 </button>
 
-                <FavoriteButton :pokemon="{ name, imageSrc, weight, height, types }" ></FavoriteButton>
+                <FavoriteButton :pokemon="{ name, imageSrc, weight, height, types }"></FavoriteButton>
             </div>
         </section>
+        <CopiedNotification :visible="copied" />
     </div>
-    <div class="overlay"></div>
+
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { ref, defineProps } from "vue";
 import FavoriteButton from '@/components/shared-components/FavoriteButton.vue';
+import CopiedNotification from '@/components/shared-components/CopiedNotification.vue';
+
+
+
+const copied = ref(false);
+
 
 const props = defineProps({
     imageSrc: String,
@@ -37,24 +44,32 @@ const props = defineProps({
 });
 
 
+
 const sharePokemon = async () => {
     const text = `Name: ${props.name}, Weight: ${props.weight}, Height: ${props.height}, Types: ${props.types.join(", ")}`;
 
     try {
         await navigator.clipboard.writeText(text);
-        alert("Copied to clipboard!");
+        copied.value = true;
+
+        setTimeout(() => {
+            copied.value = false;
+        }, 2000);
+
     } catch (err) {
         console.error("Error copying to clipboard", err);
     }
 };
+
+
 </script>
 
 <style scoped>
 .pokemon-card {
     width: 315px;
     height: 506px;
-    background: #FFFFFF;
-    border-radius: 5px;
+    background: var(--color-white);
+    border-radius: var(--radius-sm);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -62,10 +77,10 @@ const sharePokemon = async () => {
     z-index: 10;
 }
 
-.pokemon-image{
+.pokemon-image {
     width: 100%;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-top-right-radius: var(--radius-sm);
+    border-top-left-radius: var(--radius-sm);
     height: 220px;
     object-fit: contain;
     background-image: url('/public/img/poke-background.svg');
@@ -81,19 +96,17 @@ const sharePokemon = async () => {
 .pokemon-details {
     display: flex;
     flex-direction: column;
-    gap:10px;
 }
 
-.pokemon-details p{
-    color:#5E5E5E;
-    font-family: 'Lato';
-    font-size:1.125rem;
-    border-bottom: 1px solid #E8E8E8;
-    padding: 0px;
-    padding-bottom:10px;
+.pokemon-details p {
+    color: var(--color-dark-light);
+    font-family: var(--font-base);
+    font-size: var(--font-size-md);
+    border-bottom: 1px solid var(--color-divider);
+    padding: 10px 0px;
 }
 
-.pokemon-details p span{
+.pokemon-details p span {
     text-transform: capitalize;
 }
 
@@ -102,7 +115,7 @@ const sharePokemon = async () => {
     top: 15px;
     right: 15px;
     background: transparent;
-    border:none;
+    border: none;
     cursor: pointer;
     z-index: 2;
     width: 26px;
@@ -115,49 +128,40 @@ const sharePokemon = async () => {
     gap: 16px;
     width: 255px;
     margin: auto;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .share-button {
-    background: #f22539;
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-white);
     border: none;
-    border-radius: 60px;
+    border-radius: var(--radius-md);
     width: 195px;
     height: 44px;
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.125rem;
-    font-family: "Lato";
-}
-
-.overlay {
-    background: rgba(66, 65, 65, 0.8);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index:6;
+    font-size: var(--font-size-md);
+    font-family: var(--font-base);
 }
 
 @media (min-width: 768px) {
     .pokemon-card {
-    width: 570px;
+        width: 570px;
     }
 
     .pokemon-image {
         object-fit: contain;
     }
 
-    .footer-card{
+    .footer-card {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
     }
 }
-
 </style>

@@ -44,34 +44,34 @@ const icons = {
   justify-content: center;
   gap: 8px;
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 1.125rem; 
-  font-weight: bold;
+  font-size: var(--font-size-md); 
+  font-weight: var(--font-weight-bold);
   box-sizing: border-box;
   transition: background-color 0.2s, transform 0.1s;
 }
 
 .button-componente.normal {
-  background-color: #F22539;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .button-componente.pressed {
-  background-color: #C00E20;
+  background-color: var(--color-pressed);
   transform: scale(0.98);
 }
 
 .button-componente.active,
 .button-componente.active2 {
-  background-color: #F22539;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .button-componente.disabled,
 .button-componente.disabled2 {
-  background-color: #BFBFBF;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
   cursor: not-allowed;
 }
 

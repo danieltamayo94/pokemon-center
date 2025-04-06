@@ -1,0 +1,35 @@
+:root {
+    /* 🎨 Colores */
+    --color-primary: #f22539;
+    --color-background-body:#F9F9F9;
+    --color-overlay:rgba(66, 65, 65, 0.8);
+    --color-shadow:rgba(0, 0, 0, 0.2);
+    --color-secondary: #BFBFBF;
+    --color-white: #FFFFFF;
+    --color-gray-light: #F5F5F5;
+    --color-pressed:#C00E20;
+    --color-dark-gray:#353535;
+    --color-dark-light: #5E5E5E;
+    --color-divider:#E8E8E8;
+    --color-blue:rgba(50, 50, 255, 0.5);
+  
+    /* 🅰️ Tipografías */
+    --font-base: 'Lato';
+    --font-secondary:'Montserrat';
+    --font-size-base: 1rem;
+    --font-size-md: 1.125rem;
+    --font-size-lg:1.375rem;
+    --font-size-x-lg:1.625rem;
+    --font-size-xx-lg:2.25rem;
+    --font-weight-base:500;
+    --font-weight-md:600;
+    --font-weight-bold: 700;
+  
+    /* 📏 Espaciados y radios */
+    --radius-sm: 5px;
+    --radius-md:60px;
+    --radius-lg:50%;
+    --radius-full: 99%;
+  
+  }
+  

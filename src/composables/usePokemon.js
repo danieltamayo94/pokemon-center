@@ -23,7 +23,7 @@ export function usePokemon() {
   const fetchInitialPokemon = async () => {
     isLoading.value = true;
     try {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1000");
       if (!response.ok) throw new Error("Error al obtener la lista de Pokémon");
       const data = await response.json();
       pokemonList.value = data.results;

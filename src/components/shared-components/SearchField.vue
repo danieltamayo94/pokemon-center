@@ -23,7 +23,7 @@
   .search-input {
     display: flex;
     align-items: center;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     padding: 15px 16px;
     width: auto;
     min-width: 315px;
@@ -31,15 +31,15 @@
     box-shadow: 0px 2px 10px 0px #0000000A;
     box-sizing: border-box;
     border: none;
-    background: #FFFFFF;
+    background: var(--color-white);
   }
 
   .search-input input{
-  background:#FFFFFF; 
-  color:#353535;
-  font-weight: 500;
-  font-family: "Montserrat";
-  font-size: 16px;
+  background:var(--color-white); 
+  color:var(--color-dark-gray);
+  font-weight: var(--font-weight-base);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
   }
 
   @media (min-width: 768px) {

@@ -1,14 +1,13 @@
 <template>
-  <HomePage></HomePage>
+<router-view></router-view>
 </template>
 
 <script>
-import HomePage from "@/components/HomePage.vue";
 
 export default {
   name: 'App',
   components: {
-    HomePage
+
   }
 }
 </script>
@@ -21,7 +20,7 @@ export default {
 }
 
 body{
-  background: #F9F9F9;
+  background: var(--color-background-body);
   height: 100%;
 }
 
@@ -30,8 +29,5 @@ body{
   flex-direction: column;
   min-height: 100vh;
 }
-
-
-
 
 </style>

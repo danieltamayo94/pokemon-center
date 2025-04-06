@@ -33,12 +33,12 @@
   
   <style scoped>
   .favorite-button {
-    background: #F5F5F5;
+    background: var(--color-gray-light);
     border: none;
     cursor: pointer;
     width: 44px;
     height: 44px;
-    border-radius: 99%;
+    border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;

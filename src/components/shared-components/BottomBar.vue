@@ -19,17 +19,15 @@ import { useFavoritesStore } from "@/stores/useFavoritesStore";
 import ButtonComponent from "./ButtonComponent.vue";
 
 const favoritesStore = useFavoritesStore();
-
-// Computed que verifica si hay favoritos
 const hasFavorites = computed(() => favoritesStore.favorites.length > 0);
 </script>
 
 
 <style scoped>
 footer {
-    padding: 30px 18px;
+    padding: 18px 30px;
     box-shadow: 0px -5px 4px 0px #0000000D;
-    background: #FFFFFF;
+    background: var(--color-white);
     position: fixed;
     z-index: 5;
     bottom: 0;

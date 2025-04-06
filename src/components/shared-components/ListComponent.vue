@@ -21,18 +21,21 @@ defineProps({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #FFFFFF;
-    border-radius: 4px;
-    padding: 1rem;
+    background: var(--color-white);
+    border-radius: var(--radius-sm);
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top:8px;
+    padding-bottom:8px;
     min-width: 315px;
     width: auto;
     cursor: pointer;
   }
   
   .label {
-    font-size: 1.375rem;
-    color: #353535;
-    font-family: 'Dm Sans';
+    font-size: var(--font-size-lg);
+    color: var(--color-dark-gray);
+    font-family: var(--font-base);;
   }
   
   .star-icon {
