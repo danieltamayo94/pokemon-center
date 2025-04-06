@@ -13,23 +13,27 @@
       </svg>
     </button>
   </template>
-  
+
   <script setup>
   import { defineProps, computed } from "vue";
-  import { useFavoritesStore } from "@/stores/useFavoritesStore";
+  import { useFavoritesStore as defaultFavoritesStore } from "@/stores/useFavoritesStore";
   
   const props = defineProps({
     pokemon: Object,
+    favoritesStore: {
+      type: Object,
+      default: () => defaultFavoritesStore()
+    }
   });
   
-  const favoritesStore = useFavoritesStore();
-  
-  const isFavorite = computed(() => favoritesStore.isFavorite(props.pokemon));
+  const isFavorite = computed(() => props.favoritesStore.isFavorite(props.pokemon));
   
   const togglePokemonFavorite = () => {
-    favoritesStore.toggleFavorite(props.pokemon);
+    props.favoritesStore.toggleFavorite(props.pokemon);
   };
   </script>
+  
+
   
   <style scoped>
   .favorite-button {
