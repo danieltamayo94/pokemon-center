@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # pokemon-center
-App web que permite visualizar los diferentes pokemons y filtrarlos por nombre 
+App web que permite visualizar los diferentes pokemons, filtrarlos por nombre y guardarlos como favoritos
 =======
 # poke-api
 
